@@ -9,7 +9,7 @@
     "compass-mixins": "latest",
     "css-loader": "latest",
     "end-webpack-plugin": "latest",
-    "extract-text-webpack-plugin": "latest",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "gh-pages": "latest",
     "node-sass": "latest",
     "postcss-loader": "latest",
