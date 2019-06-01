@@ -99,8 +99,12 @@ a {
     overflow: hidden;
     padding-bottom: 5px;
     margin-bottom: 5px;
+    height: 175px;
+    line-height: 175px;
   }
-  .name,
+  .name{
+    width: 35%;
+  }
   .job,
   .info,
   .contact {
@@ -321,28 +325,29 @@ a {
       padding: 0 3px;
       background-color: #f7f7f7;
     }
-    strong {
-      font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
-      font-size: 13px;
-      line-height: 14px;
-      border: 1px solid #eee;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -ms-border-radius: 3px;
-      -o-border-radius: 3px;
-      border-radius: 3px;
-      font-weight: bold;
-      color: #ff4300;
-      margin: 2px;
-      padding: 0 3px;
-      background-color: #eee;
-    }
   }
   .practice {
     .item-time {
       width: 100%;
     }
   }
+}
+
+strong {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  line-height: 14px;
+  border: 1px solid #eee;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #147813;
+  margin: 2px;
+  padding: 0 3px;
+  background-color: #eee;
 }
 
 .btn {
