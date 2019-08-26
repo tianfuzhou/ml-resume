@@ -15,6 +15,7 @@ function publishGhPages() {
       resolve();
     }
   })
+  console.log('完成')
 }
 
 const outputPath = path.resolve(__dirname, '.public');
