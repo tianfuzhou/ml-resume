@@ -6,7 +6,6 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
 const { WebPlugin } = require('web-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ghpages = require('gh-pages');
 
 function publishGhPages() {
@@ -70,9 +69,6 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new CopyWebpackPlugin([
-      { from: 'src/assets', to: `${outputPath}/assets` },
-    ]),
     new WebPlugin({
       template: './src/index.html',
       filename: 'index.html',
