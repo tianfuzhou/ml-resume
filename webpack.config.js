@@ -60,7 +60,7 @@ module.exports = {
       'malin-resume.site',
       '114.55.254.51'
     ],
-    host: "114.55.254.51",
+    host: "0.0.0.0",
     hot: true
   }
 };
