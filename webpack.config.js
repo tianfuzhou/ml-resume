@@ -55,11 +55,7 @@ module.exports = {
   devtool: 'source-map',
   devServer:{
     port: 8080,
-    allowedHosts: [
-      'malin-life.com',
-      'malin-resume.site'
-    ],
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     hot: true
   }
 };
