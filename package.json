@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack-dev-server --open --hot",
+    "dev": "webpack-dev-server --open",
     "pub": "webpack --config webpack-dist.config.js"
   },
   "devDependencies": {
