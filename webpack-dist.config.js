@@ -3,19 +3,22 @@ const path = require('path');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
+const { spawnSync } = require('child_process');
+const findChrome = require('chrome-finder');
 const { WebPlugin } = require('web-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ghpages = require('gh-pages');
 
 function publishGhPages() {
-  ghpages.publish(outputPath, { dotfiles: true }, (err) => {
-    if (err) {
-      reject(err);
-    } else {
-      resolve();
-    }
-  })
-  console.log('完成')
+  return new Promise((resolve, reject) => {
+    ghpages.publish(outputPath, { dotfiles: true }, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    })
+  });
 }
 
 const outputPath = path.resolve(__dirname, '.public');
@@ -80,7 +83,16 @@ module.exports = {
       // 自定义域名
       fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'malin-life.com');
 
-      publishGhPages();
+      await publishGhPages();
+
+      // 调用 Chrome 渲染出 PDF 文件
+      const chromePath = findChrome();
+      spawnSync(chromePath, ['--headless', '--disable-gpu', `--print-to-pdf=${path.resolve(outputPath, 'resume.pdf')}`,
+        'http://malin-life.com' // 这里注意改成你的在线简历的网站
+      ]);
+
+      // 重新发布到 ghpages
+      await publishGhPages();
     }),
   ]
 };
