@@ -84,15 +84,6 @@ module.exports = {
       fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'malin-resume.site');
 
       await publishGhPages();
-
-      // 调用 Chrome 渲染出 PDF 文件
-      const chromePath = findChrome();
-      spawnSync(chromePath, ['--headless', '--disable-gpu', `--print-to-pdf=${path.resolve(outputPath, 'resume.pdf')}`,
-        'http://malin-resume.site' // 这里注意改成你的在线简历的网站
-      ]);
-
-      // 重新发布到 ghpages
-      await publishGhPages();
     }),
   ]
 };
