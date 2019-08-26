@@ -76,6 +76,9 @@ a {
     margin: 0;
     @include border-radius(0);
   }
+  @media print {
+    margin: 0;
+  }
 }
 
 .content-hd {
