@@ -53,4 +53,13 @@ module.exports = {
     }),
   ],
   devtool: 'source-map',
+  devServer:{
+    port: 8080,
+    allowedHosts: [
+      'malin-life.com',
+      'malin-resume.site'
+    ],
+    host: "0.0.0.0",
+    hot: true
+  }
 };
