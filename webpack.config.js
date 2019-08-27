@@ -34,7 +34,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
+        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf|ico)$/,
         loader: 'base64-inline-loader',
       },
     ]
