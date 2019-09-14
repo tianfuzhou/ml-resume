@@ -21,7 +21,8 @@ module.exports = {
         // 提取出css
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          // 压缩css
+          use: ['css-loader?minimize', 'postcss-loader', 'sass-loader']
         }),
         include: path.resolve(__dirname, 'src')
       },
@@ -48,7 +49,7 @@ module.exports = {
       filename: 'index.html',
     }),
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: '[name]_[contenthash:8].css',
       allChunks: true,
     }),
   ],
