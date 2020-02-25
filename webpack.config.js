@@ -1,7 +1,6 @@
 const path = require('path');
-const { WebPlugin } = require('web-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
@@ -10,33 +9,19 @@ module.exports = {
   },
   resolve: {
     // 加快搜索速度
-    modules: [path.resolve(__dirname, 'node_modules')],
-    // es tree-shaking
-    mainFields: ['jsnext:main', 'browser', 'main'],
+    modules: [path.resolve(__dirname, 'node_modules')]
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          // 压缩css
-          use: ['css-loader?minimize', 'postcss-loader', 'sass-loader']
-        }),
+        loaders:[MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
         include: path.resolve(__dirname, 'src')
       },
       {
-        test: /\.css$/,
-        // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-        }),
-      },
-      {
         test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf|ico)$/,
-        loader: 'base64-inline-loader',
+        loader: 'file-loader',
       },
     ]
   },
@@ -44,24 +29,19 @@ module.exports = {
     main: './src/main.js',
   },
   plugins: [
-    new WebPlugin({
+    new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name]_[contenthash:8].css',
       allChunks: true,
     }),
   ],
   devtool: 'source-map',
   devServer:{
-    port: 8080,
-    allowedHosts: [
-      'malin-life.com',
-      'malin-resume.site',
-      '114.55.254.51'
-    ],
-    host: "0.0.0.0",
+    contentBase: path.join(__dirname, 'src'),
+    port: 8088,
     hot: true
   }
 };

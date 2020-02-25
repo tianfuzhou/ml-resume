@@ -1,11 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
-const { spawnSync } = require('child_process');
-const findChrome = require('chrome-finder');
-const { WebPlugin } = require('web-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ghpages = require('gh-pages');
 
@@ -23,6 +22,7 @@ function publishGhPages() {
 
 const outputPath = path.resolve(__dirname, '.public');
 module.exports = {
+  mode:'production',
   output: {
     path: outputPath,
     publicPath: '',
@@ -30,34 +30,19 @@ module.exports = {
   },
   resolve: {
     // 加快搜索速度
-    modules: [path.resolve(__dirname, 'node_modules')],
-    // es tree-shaking
-    mainFields: ['jsnext:main', 'browser', 'main'],
+    modules: [path.resolve(__dirname, 'node_modules')]
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          // 压缩css
-          use: ['css-loader?minimize', 'postcss-loader', 'sass-loader']
-        }),
+        loaders:[MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
         include: path.resolve(__dirname, 'src')
       },
       {
-        test: /\.css$/,
-        // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          // 压缩css
-          use: ['css-loader?minimize', 'postcss-loader'],
-        }),
-      },
-      {
-        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
-        loader: 'base64-inline-loader',
+        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf|ico)$/,
+        loader: 'file-loader',
       },
     ]
   },
@@ -71,14 +56,17 @@ module.exports = {
       }
     }),
     new CleanWebpackPlugin(),
-    new WebPlugin({
+    new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name]_[contenthash:8].css',
       allChunks: true,
     }),
+    new CopyPlugin([
+      { from: './src/assets', to: 'assets/' }
+    ]),
     new EndWebpackPlugin(async () => {
       // 自定义域名
       fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'malin-resume.site');
