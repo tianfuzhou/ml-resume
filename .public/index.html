@@ -8,7 +8,7 @@
   <title>简历 | 马林</title>
   <link rel="shortcut icon" href="http://114.55.254.51:4000/img/favicon.ico">
   <base target="_blank">
-<link href="main_698e5b8b.css" rel="stylesheet"></head>
+<link href="main_e47a0588.css" rel="stylesheet"></head>
 <body>
 <p class="last-modified">最后更新于2020年2月</p>
 
@@ -135,7 +135,7 @@
           <span class="section-title-r"></span>
         </header>
         <div class="section-bd">
-          以下是我的开源项目与学习总结，细节请点击链接查看文档
+          <p class='no-print'>以下是我的开源项目与学习总结，点击链接查看</p>
           
           <!--项目:Vue组件-->
           <div class="item">
@@ -155,22 +155,6 @@
  高性能轻量级tab组件，可用于处理
 <strong>大数据tab</strong>
 </li>
-              </ul>
-            </div>
-          </div>
-
-          <!--项目：iview-->
-          <div class="item">
-            <header class="item-hd">
-              <span class="item-time"><a href="https://iviewui.com/">iview</a></span>
-              <a class="btn item-more" href="https://iviewui.com/">开源</a>
-            </header>
-            <div class="item-bd">
-              <ul>
-                <li>Table 增加<a href="https://github.com/iview/iview/pull/4601">on-select-all-cancel</a>事件</li>
-                <li>Tree 修改<a href="https://github.com/iview/iview/pull/4601">on-select-change/on-check-change</a>事件添加节点信息</li>
-                <li>Tree 增加<a href="https://github.com/iview/iview/pull/4893">checkStrictly</a>props</li>
-                <li>增加全局变量<a href="https://github.com/iview/iview/pull/5383">maskClosable</a></li>
               </ul>
             </div>
           </div>
@@ -203,6 +187,33 @@
       </section>
     </div>
     <div class="content-right">
+      <section class="project">
+        <header class="section-hd">
+          <span class="section-title-l"></span>
+          <h2 class="section-title">项目</h2>
+          <span class="section-title-r"></span>
+        </header>
+        <div class="section-bd">
+          <p class='no-print'>以下是我的开源项目与学习总结，点击链接查看</p>
+
+          <!--项目：iview-->
+          <div class="item">
+            <header class="item-hd">
+              <span class="item-time"><a href="https://iviewui.com/">iview</a></span>
+              <a class="btn item-more" href="https://iviewui.com/">开源</a>
+            </header>
+            <div class="item-bd">
+              <ul>
+                <li>修复<a href="https://github.com/view-design/ViewUI/pull/326">Select</a>组件开启Group后显示缺陷</li>
+                <li>Table 增加<a href="https://github.com/iview/iview/pull/4601">on-select-all-cancel</a>事件</li>
+                <li>Tree 修改<a href="https://github.com/iview/iview/pull/4601">on-select-change/on-check-change</a>事件添加节点信息</li>
+                <li>Tree 增加<a href="https://github.com/iview/iview/pull/4893">checkStrictly</a>props</li>
+                <li>增加全局变量<a href="https://github.com/iview/iview/pull/5383">maskClosable</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="skill">
         <header class="section-hd">
@@ -215,11 +226,12 @@
           <!--技能:Web-->
           <div class="item">
             <header class="item-hd">
-              <span class="item-time">Web</span>
+              <span class="item-time">前端</span>
               <a class="btn item-more">精通</a>
             </header>
             <div class="item-bd">
               <ul class="section-content">
+                <li>理解Vue原理与生态技术栈，熟练掌握Vue组件库的使用</li>
                 <li>熟知JS基本语法与知识，掌握<strong>ES6+</strong>语法</li>
                 <li>掌握<strong>H5/css3</strong>新特性</li>
                 <li>使用<strong>less/sass</strong>等css扩展语言</li>
@@ -227,16 +239,16 @@
             </div>
           </div>
 
-          <!--Vue-->
+          <!--node-->
           <div class="item">
             <header class="item-hd">
-              <span class="item-time">Vue</span>
-              <a class="btn item-more">精通</a>
+              <span class="item-time">node</span>
+              <a class="btn item-more">掌握</a>
             </header>
             <div class="item-bd">
               <ul class="section-content">
-                <li>理解Vue原理与生态技术栈</li>
-                <li>熟练掌握Vue组件库的使用，具有丰富的Vue组件开发经验</li>
+                <li>掌握koa，express等流行框架的使用，了解其原理</li>
+                <li>可以使用node编写构建脚本</li>
               </ul>
             </div>
           </div>
@@ -257,20 +269,6 @@
             </div>
           </div>
 
-          <!--node-->
-          <div class="item">
-            <header class="item-hd">
-              <span class="item-time">node</span>
-              <a class="btn item-more">掌握</a>
-            </header>
-            <div class="item-bd">
-              <ul class="section-content">
-                <li>掌握koa，express流行框架的使用</li>
-                <li>可以使用node编写构建脚本</li>
-              </ul>
-            </div>
-          </div>
-
           <!--其它-->
           <div class="item">
             <header class="item-hd">
@@ -278,8 +276,9 @@
             </header>
             <div class="item-bd">
               <ul class="section-content">
-                
-                <li>掌握Git，敏捷开发</li>
+                <li>掌握Git，适应敏捷开发</li>
+                <li>掌握网络基础，了解http2，websocket等协议</li>
+                <li>使用docker虚拟容器用于环境搭建</li>
               </ul>
             </div>
           </div>
@@ -295,5 +294,5 @@
 </footer>
 
 
-<script type="text/javascript" src="main_ace499ab.js"></script></body>
+<script type="text/javascript" src="main_2ce565a9.js"></script></body>
 </html>
