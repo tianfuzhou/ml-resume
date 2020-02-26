@@ -65,7 +65,8 @@ module.exports = {
       allChunks: true,
     }),
     new CopyPlugin([
-      { from: './src/assets', to: 'assets/' }
+      { from: './src/assets', to: 'assets/' },
+      { from: './.gitignore', to: './'}
     ]),
     new EndWebpackPlugin(async () => {
       // 自定义域名
