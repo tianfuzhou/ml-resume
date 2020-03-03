@@ -1,7 +1,8 @@
 #!/bin/bash
-#deploy-dev.sh
+# deploy-dev.sh
 echo Deploy Project # 获取最新版代码
 
+# 拉取代码
 git pull
 
 # 强制重新编译容器
