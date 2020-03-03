@@ -14,6 +14,7 @@ function run_cmd(cmd, args, callback) {
     resp += buffer.toString();
   });
   child.stdout.on('end', function () {
+    console.log('Deploy 完成')
     callback(resp)
   });
 }
