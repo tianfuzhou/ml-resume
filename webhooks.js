@@ -30,8 +30,7 @@ http.createServer((req,res)=>{
   console.log('请求',req)
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('响应内容');
-})
-http.listen(8000, () => {
+}).listen(8000, () => {
   console.log('Webhook listen at 8000')
 })
 
