@@ -1,24 +1,24 @@
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const EndWebpackPlugin = require('end-webpack-plugin');
+// const EndWebpackPlugin = require('end-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ghpages = require('gh-pages');
+// const ghpages = require('gh-pages');
 
-function publishGhPages() {
-  return new Promise((resolve, reject) => {
-    ghpages.publish(outputPath, { dotfiles: true }, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    })
-  });
-}
+// function publishGhPages() {
+//   return new Promise((resolve, reject) => {
+//     ghpages.publish(outputPath, { dotfiles: true }, (err) => {
+//       if (err) {
+//         reject(err);
+//       } else {
+//         resolve();
+//       }
+//     })
+//   });
+// }
 
 const outputPath = path.resolve(__dirname, '.public');
 module.exports = {
@@ -68,11 +68,11 @@ module.exports = {
       { from: './src/assets', to: 'assets/' },
       { from: './.gitignore', to: './'}
     ]),
-    new EndWebpackPlugin(async () => {
-      // 自定义域名
-      fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'malin-resume.site');
+    // new EndWebpackPlugin(async () => {
+    //   // 自定义域名
+    //   fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'malin-resume.site');
 
-      await publishGhPages();
-    }),
+    //   await publishGhPages();
+    // }),
   ]
 };
