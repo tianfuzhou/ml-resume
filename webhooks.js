@@ -2,7 +2,7 @@ const http = require('http')
 const createHandler = require('github-webhook-handler')
 
 const handler = createHandler({
-    path:'/docker_deploy',
+    path:'/resume-hook',
     secret:'malin258'
 })
 
