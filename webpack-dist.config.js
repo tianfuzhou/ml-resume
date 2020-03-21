@@ -20,7 +20,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //   });
 // }
 
-const outputPath = path.resolve(__dirname, '.public');
+const outputPath = path.resolve(__dirname, 'dist');
 module.exports = {
   mode:'production',
   output: {
