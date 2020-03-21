@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "webpack-dev-server --open",
-    "pub": "webpack --config webpack-dist.config.js"
+    "build": "webpack --config webpack-dist.config.js"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.4",
