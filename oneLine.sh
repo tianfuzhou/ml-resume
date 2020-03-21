@@ -3,5 +3,5 @@ pm2 del ml-resume-hook
 
 pm2 start --name ml-resume-hook webhooks.js
 
-# 启动docker-compose
-docker-compose up
+# 自动部署
+sh autoDeploy.sh
